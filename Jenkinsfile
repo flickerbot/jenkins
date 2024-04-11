@@ -2,12 +2,29 @@ pipeline {
   agent any
   stages {
     stage('A') {
-      steps {
-        echo '========executing A========'
-        input 'do you wanna continue '
-        sh '''echo hello
+      parallel {
+        stage('A') {
+          steps {
+            echo '========executing A========'
+            input 'do you wanna continue '
+            sh '''echo hello
 
 '''
+          }
+        }
+
+        stage('parallel') {
+          steps {
+            sleep 10
+          }
+        }
+
+        stage('hello world ') {
+          steps {
+            echo 'hello bch'
+          }
+        }
+
       }
     }
 

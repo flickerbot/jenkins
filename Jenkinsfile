@@ -7,12 +7,17 @@
              }}
 
          stage("SCript"){
-          sh '''pwd 
+        steps{  sh '''pwd 
                 ls
           calender '''
-             }
+             
+           } 
+        }
+
                   }
          
+
+
      
      post{
          always{

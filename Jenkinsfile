@@ -9,7 +9,7 @@
          stage("SCript"){
         steps{  sh '''pwd 
                 ls
-          calender '''
+                     '''
              
            } 
         }

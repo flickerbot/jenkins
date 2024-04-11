@@ -1,0 +1,84 @@
+pipeline {
+    agent any
+    
+      environment {
+                     name = 'Rishiraj'
+                 }
+   
+   
+ parameters {
+                     string(name : 'password', defaultValue: 'Rishi1234', description :"who are you ? ")
+                 }
+                
+   
+    stages {
+        stage('Run a Command ') {
+            steps {
+                sh 'date'
+                sh 'pwd'
+                sh 'ls'
+              
+            }
+        }
+        
+         stage('Hello_build') {
+            steps {
+                
+                sh '''
+                  ls
+                  pwd 
+              '''
+            }
+         }
+         
+         
+             stage('Environment Variable') {
+            steps {
+                sh 'echo " ${BUILD_ID}"'
+            }
+             }
+             
+             
+             
+             stage('Hello_deployprod') {
+                 environment {
+                     name = 'Rishi'
+                 }
+                
+            steps {
+               
+                sh "echo '${password}'"
+                sh "echo '${name}'"
+                sh "echo ${password}"
+                sh "echo ${name}"
+
+            }
+        }
+        
+        stage ('Continue ?'){
+            input {
+            message "should we continue ?"
+            ok 'Yes we should '
+            
+        }
+            steps {
+                echo "continued ......."
+            }
+            
+        }
+}
+        post {
+            always{
+                echo "hey i run always "
+            }
+            success{
+                echo "hey i run on success"
+                
+            }
+            failure {
+                echo "hey i run on faliure "
+            }
+        }
+        
+    
+}

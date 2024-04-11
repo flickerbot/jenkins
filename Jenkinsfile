@@ -4,14 +4,15 @@
          stage("A"){
              steps{
                  echo "========executing A========"
-             }
+             }}
+
          stage("SCript"){
           sh '''pwd 
                 ls
           calender '''
              }
-             }
-         }
+                  }
+         
      
      post{
          always{

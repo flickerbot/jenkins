@@ -4,6 +4,7 @@
          stage("A"){
              steps{
                  echo "========executing A========"
+                 input 'do you wanna continue '
              }}
 
          stage("SCript"){

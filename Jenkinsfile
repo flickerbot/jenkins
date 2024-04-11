@@ -5,19 +5,14 @@
              steps{
                  echo "========executing A========"
              }
-             post{
-                 always{
-                     echo "========always========"
-                 }
-                 success{
-                     echo "========A executed successfully========"
-                 }
-                 failure{
-                     echo "========A execution failed========"
-                 }
+         stage("SCript"){
+          sh '''pwd 
+                ls
+          calender '''
+             }
              }
          }
-     }
+     
      post{
          always{
              echo "========always========"

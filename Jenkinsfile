@@ -15,7 +15,7 @@ pipeline {
 
         stage('parallel') {
           steps {
-            sleep 10
+            sleep 1
           }
         }
 
